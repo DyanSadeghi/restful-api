@@ -1,4 +1,6 @@
-const app = require("express")();
+const express = require("express");
+const app = express()
+
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
@@ -11,6 +13,7 @@ mongoose.Promise = global.Promise;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json({ type: "application/json" }));
+app.use('/public' , express.static('public'))
 
 
 const apiRouter = require("./modules/routes/api");

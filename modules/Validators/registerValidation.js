@@ -4,7 +4,7 @@ exports.validateRegister = [
   check("name", "نام نمیتواند خال بماند").not().isEmpty(),
   check("email", "ایمیل نمیتواند خال بماند").not().isEmpty(),
   check("password", "گذرواژه نمیتواند خالی بماند").not().isEmpty(),
-  check("email", "فرمت ایمیل وارد شده صحیح نیست").not().isEmail(),
+  check("email", "فرمت ایمیل وارد شده صحیح نیست").isEmail(),
 
   (req, res, next) => {
     const errors = validationResult(req);
