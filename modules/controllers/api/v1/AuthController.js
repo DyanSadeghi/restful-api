@@ -4,10 +4,10 @@ const UserTransform = require(`${config.path.transform}/v1/UserTransform`);
 const { check, validationResult } = require("express-validator");
 const bcrypt = require("bcrypt");
 
-module.exports = new (class CourseController extends Controller {
+module.exports = new (class AuthController extends Controller {
   register(req, res) {
     //* Validation
-    let newUser = new this.model.User({
+    new this.model.User({
       name: req.body.name,
       email: req.body.email,
       password: req.body.password,
@@ -29,15 +29,29 @@ module.exports = new (class CourseController extends Controller {
       .then((user) => {
         if (user == null)
           return res.status(422).json({ message: "اطلاعات وارده صحیح نیست" });
-        bcrypt.compare(req.body.password, user.password, (err, status) => {
-          if (!status) {
-            return res.status(422).json({ message: "گذرواژه صحیح نمیباشد" });
-          }
-          return res.json({
-            data: new UserTransform().transform(user,true),
-            success: true,
+        // bcrypt.compare(req.body.password, user.password, (err, status) => {
+        //   if (!status) {
+        //     return res.status(422).json({ message: "گذرواژه صحیح نمیباشد" });
+        //   }
+        //   return res.json({
+        //     data: new UserTransform().transform(user, true),
+        //     success: true,
+        //   });
+        // });
+        bcrypt
+          .compare(req.body.password, user.password)
+          .then((status) => {
+            if (!status) {
+              return res.status(422).json({ message: "گذرواژه صحیح نمیباشد" });
+            }
+            return res.json({
+              data: new UserTransform().transform(user, true),
+              success: true,
+            });
+          })
+          .catch((err) => {
+            throw err;
           });
-        });
       })
       .catch((err) => {
         res.json(err);

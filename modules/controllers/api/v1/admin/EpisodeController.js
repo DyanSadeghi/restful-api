@@ -18,7 +18,7 @@ module.exports = new (class EpisodeController extends Controller {
   }
 
   store(req, res) {
-    let course = this.model.Course.findById(req.body.course_id, {}).then(
+    this.model.Course.findById(req.body.course_id, {}).then(
       (currentCourse) => {
         let episode = new this.model.Episode({
           course: currentCourse._id,

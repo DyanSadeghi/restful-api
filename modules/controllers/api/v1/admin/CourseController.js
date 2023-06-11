@@ -12,18 +12,17 @@ module.exports = new (class CourseController extends Controller {
   }
   store(req, res) {
     let newCourse = new this.model.Course({
-      user: req.user._id,
+      user: req.body.user.id,
       title: req.body.title,
       body: req.body.body,
       price: req.body.price,
       image: req.body.image,
     });
-    console.log("newCourse");
     newCourse.save();
     req.user.courses.push(newCourse._id);
     req.user.save();
 
-    res.json("created course");
+    res.json(newCourse);
   }
   update(req, res) {
     // req.checkBody('id','آیدی وارده صحیح نمیباشد').isMongoId()

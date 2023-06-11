@@ -21,6 +21,7 @@ const UserController = require(`${ControllerApi}/v1/UserController`);
 //*AdminController
 const AdminCourseController = require(`${ControllerApi}/v1/admin/CourseController`);
 const AdminEpisodeController = require(`${ControllerApi}/v1/admin/EpisodeController`);
+const AdminUserController = require(`${ControllerApi}/v1/admin/UserController`);
 // console.log(AdminEpisodeController)
 
 router.get("/", HomeController.index);
@@ -84,6 +85,7 @@ adminRouter.delete(
   "/episodes/:id",
   AdminEpisodeController.destroy.bind(AdminEpisodeController)
 );
+adminRouter.get("/users", AdminUserController.index.bind(AdminUserController));
 
 router.use("/admin", apiAuth, apiAdmin, adminRouter);
 
