@@ -1,5 +1,6 @@
 const express = require("express");
-const app = express()
+const app = express();
+const cors = require("cors");
 
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
@@ -13,8 +14,12 @@ mongoose.Promise = global.Promise;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json({ type: "application/json" }));
-app.use('/public' , express.static('public'))
-
+app.use("/public", express.static("public"));
+var corsOptions = {
+  origin: "*",
+  Credentials: true,
+};
+app.use(cors(corsOptions));
 
 const apiRouter = require("./modules/routes/api");
 const webRouter = require("./modules/routes/web");
