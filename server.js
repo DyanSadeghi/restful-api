@@ -17,7 +17,7 @@ app.use(bodyParser.json({ type: "application/json" }));
 app.use("/public", express.static("public"));
 var corsOptions = {
   origin: "*",
-  Credentials: true,
+  credentials: true,
 };
 app.use(cors(corsOptions));
 

@@ -7,7 +7,7 @@ const { check, validationResult } = require("express-validator");
 module.exports = new (class CourseController extends Controller {
   index(req, res) {
     this.model.Course.find({}).then((courses) => {
-      res.json(courses);
+      res.json({ data: courses });
     });
   }
   store(req, res) {
