@@ -66,7 +66,7 @@ adminRouter.delete(
 );
 
 adminRouter.get(
-  "/episodes",
+  "/episodes/:id",
   AdminEpisodeController.index.bind(AdminEpisodeController)
 );
 

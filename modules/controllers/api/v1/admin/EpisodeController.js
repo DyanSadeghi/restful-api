@@ -3,14 +3,11 @@ const EpisodeTransform = require(`${config.path.transform}/v1/EpisodeTransform`)
 
 module.exports = new (class EpisodeController extends Controller {
   index(req, res) {
-    const page = req.query.page || 1;
-    this.model.Episode.paginate({}, { page, limit: 2 })
+    this.model.Episode.find({ course: req.params.id })
       .then((result) => {
         if (result) {
           res.json({
-            data: new EpisodeTransform()
-              .withPaginate()
-              .transformCollection(result),
+            data: new EpisodeTransform().transformCollection(result),
           });
         }
       })
@@ -18,24 +15,22 @@ module.exports = new (class EpisodeController extends Controller {
   }
 
   store(req, res) {
-    this.model.Course.findById(req.body.course_id, {}).then(
-      (currentCourse) => {
-        let episode = new this.model.Episode({
-          course: currentCourse._id,
-          title: req.body.title,
-          body: req.body.body,
-          videoUrl: req.body.videoUrl,
-          number: req.body.number,
-        });
-        episode.save();
-        if (currentCourse.episodes) {
-          console.log(episode);
-          currentCourse.episodes.push(episode._id);
-          currentCourse.save();
-          res.json("ویدیو با موفقیت ایجاد شد");
-        }
+    this.model.Course.findById(req.body.course_id, {}).then((currentCourse) => {
+      let episode = new this.model.Episode({
+        course: currentCourse._id,
+        title: req.body.title,
+        body: req.body.body,
+        videoUrl: req.body.videoUrl,
+        number: req.body.number,
+      });
+      episode.save();
+      if (currentCourse.episodes) {
+        console.log(episode);
+        currentCourse.episodes.push(episode._id);
+        currentCourse.save();
+        res.json("ویدیو با موفقیت ایجاد شد");
       }
-    );
+    });
   }
 
   update(req, res) {
