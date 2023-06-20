@@ -31,4 +31,3 @@ app.use("/api", apiRouter);
 app.listen(config.port, () => {
   console.log(`Server Is Running at Port ${config.port}`);
 });
-export default app
