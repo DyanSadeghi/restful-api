@@ -7,7 +7,8 @@ module.exports = class EpisodeTransform extends Transform {
       id: item._id,
       title: item.title,
       body: item.body,
-      number:item.number,
+      number: item.number,
+      videoUrl: item.videoUrl,
       ...this.showCourse(item),
     };
   }
