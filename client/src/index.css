@@ -1,0 +1,99 @@
+@font-face {
+ font-family: "Roobert TWHINT";
+ src: url("../public/fonts/Roobert/RoobertTWHINT-Regular.eot");
+ src: url("../public/fonts/Roobert/RoobertTWHINT-Regular.eot?#iefix") format("embedded-opentype"),
+  url("../public/fonts/Roobert/RoobertTWHINT-Regular.woff2") format("woff2"),
+  url("../public/fonts/Roobert/RoobertTWHINT-Regular.woff") format("woff"),
+  url("../public/fonts/Roobert/RoobertTWHINT-Regular.ttf") format("truetype"),
+  url("../public/fonts/Roobert/RoobertTWHINT-Regular.svg#RoobertTWHINT-Regular") format("svg");
+ font-weight: normal;
+ font-style: normal;
+ font-display: swap;
+}
+
+@font-face {
+ font-family: "Roobert TWHINT";
+ src: url("../public/fonts/Roobert/RoobertTWHINT-SemiBold.eot");
+ src: url("../public/fonts/Roobert/RoobertTWHINT-SemiBold.eot?#iefix") format("embedded-opentype"),
+  url("../public/fonts/Roobert/RoobertTWHINT-SemiBold.woff2") format("woff2"),
+  url("../public/fonts/Roobert/RoobertTWHINT-SemiBold.woff") format("woff"),
+  url("../public/fonts/Roobert/RoobertTWHINT-SemiBold.ttf") format("truetype"),
+  url("../public/fonts/Roobert/RoobertTWHINT-SemiBold.svg#RoobertTWHINT-SemiBold") format("svg");
+ font-weight: 600;
+ font-style: normal;
+ font-display: swap;
+}
+
+@font-face {
+ font-family: "Roobert TWHINT";
+ src: url("../public/fonts/Roobert/RoobertTWHINT-Bold.eot");
+ src: url("../public/fonts/Roobert/RoobertTWHINT-Bold.eot?#iefix") format("embedded-opentype"),
+  url("../public/fonts/Roobert/RoobertTWHINT-Bold.woff2") format("woff2"),
+  url("../public/fonts/Roobert/RoobertTWHINT-Bold.woff") format("woff"),
+  url("../public/fonts/Roobert/RoobertTWHINT-Bold.ttf") format("truetype"),
+  url("../public/fonts/Roobert/RoobertTWHINT-Bold.svg#RoobertTWHINT-Bold") format("svg");
+ font-weight: bold;
+ font-style: normal;
+ font-display: swap;
+}
+
+@font-face {
+ font-family: "Roobert";
+ src: url("../public/fonts/Roobert/Roobert-Regular.eot");
+ src: url("../public/fonts/Roobert/Roobert-Regular.eot?#iefix") format("embedded-opentype"),
+  url("../public/fonts/Roobert/Roobert-Regular.woff2") format("woff2"),
+  url("../public/fonts/Roobert/Roobert-Regular.woff") format("woff"),
+  url("../public/fonts/Roobert/Roobert-Regular.ttf") format("truetype"),
+  url("../public/fonts/Roobert/Roobert-Regular.svg#Roobert-Regular") format("svg");
+ font-weight: normal;
+ font-style: normal;
+ font-display: swap;
+}
+
+@font-face {
+ font-family: Yekan Bakh;
+ font-style: normal;
+ font-weight: 300;
+ src: url("../public/fonts/YekanBakh/woff/YekanBakh-Light.woff") format("woff"),
+  url("../public/fonts/YekanBakh/woff2/YekanBakh-Light.woff2") format("woff2");
+}
+
+@font-face {
+ font-family: Yekan Bakh;
+ font-style: normal;
+ font-weight: normal;
+ src: url("../public/fonts/YekanBakh/woff/YekanBakh-Regular.woff") format("woff"),
+  url("../public/fonts/YekanBakh/woff2/YekanBakh-Regular.woff2") format("woff2");
+}
+
+@font-face {
+ font-family: Yekan Bakh;
+ font-style: normal;
+ font-weight: 600;
+ src: url("../public/fonts/YekanBakh/woff/YekanBakh-SemiBold.woff") format("woff"),
+  url("../public/fonts/YekanBakh/woff2/YekanBakh-SemiBold.woff2") format("woff2");
+}
+
+@font-face {
+ font-family: Yekan Bakh;
+ font-style: normal;
+ font-weight: 700;
+ src: url("../public/fonts/YekanBakh/woff/YekanBakh-Bold.woff") format("woff"),
+  url("../public/fonts/YekanBakh/woff2/YekanBakh-Bold.woff2") format("woff2");
+}
+
+@font-face {
+ font-family: Yekan Bakh;
+ font-style: normal;
+ font-weight: 800;
+ src: url("../public/fonts/YekanBakh/woff/YekanBakh-ExtraBold.woff") format("woff"),
+  url("../public/fonts/YekanBakh/woff2/YekanBakh-ExtraBold.woff2") format("woff2");
+}
+
+body {
+ margin: 0;
+ font-family: "Yekan Bakh";
+ -webkit-font-smoothing: antialiased;
+ -moz-osx-font-smoothing: grayscale;
+ background-color: #fff;
+}
