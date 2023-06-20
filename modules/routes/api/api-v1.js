@@ -34,7 +34,7 @@ router.post(
   AuthController.register.bind(AuthController)
 );
 router.get("/user", apiAuth, UserController.index.bind(UserController));
-router.get("/episodes/:id", EpisodeController.single.bind(EpisodeController));
+router.get("/courses/:id", CourseController.single.bind(CourseController));
 
 router.post(
   "/user/image",

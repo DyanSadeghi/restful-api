@@ -1,25 +1,26 @@
 const Transform = require("./../Transform");
-const CourseTransform = require('./CourseTransform')
+const CourseTransform = require("./CourseTransform");
 
 module.exports = class EpisodeTransform extends Transform {
   transform(item) {
     return {
-      'title': item.title,
-      'body': item.body,
-      ...this.showCourse(item)
-      
+      id: item._id,
+      title: item.title,
+      body: item.body,
+      number:item.number,
+      ...this.showCourse(item),
     };
   }
-  showCourse(item){
-    if(this.withCourseStatus){
-      return{
-        'course' : new CourseTransform().transform(item.course)
-      }
+  showCourse(item) {
+    if (this.withCourseStatus) {
+      return {
+        course: new CourseTransform().transform(item.course),
+      };
     }
-    return{}
+    return {};
   }
-  withCourse(){
-    this.withCourseStatus = true
-             return this
+  withCourse() {
+    this.withCourseStatus = true;
+    return this;
   }
 };

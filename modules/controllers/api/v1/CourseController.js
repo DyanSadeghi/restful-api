@@ -35,4 +35,22 @@ module.exports = new (class CourseController extends Controller {
       res.json({ message: "No Token Provided" });
     }
   }
+  single(req, res) {
+    this.model.Course.findById(req.params.id)
+      .populate("episodes")
+      // .exec()
+      .then((course) => {
+        if (course) {
+          res.json({
+            data: new CourseTransform().withEpisodes().transform(course),
+            success: true,
+          });
+        } else {
+          res.json({ message: "no course found" });
+        }
+      })
+      .catch((err) => {
+        if (err) throw err;
+      });
+  }
 })();
