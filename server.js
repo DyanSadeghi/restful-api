@@ -1,15 +1,16 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-
+const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
+dotenv.config();
 global.config = require("./modules/config");
 const path = require("path");
 
 //* Connect to DB
-mongoose.connect("mongodb://127.0.0.1:27017/restful");
+mongoose.connect(`${process.env.MONGO_URI}`);
 mongoose.Promise = global.Promise;
 
 app.use(bodyParser.urlencoded({ extended: false }));
